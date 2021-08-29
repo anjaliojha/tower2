@@ -9,14 +9,17 @@ var stand1,stand2;
 var polygon;
 var slingShot;
 var polygon_img;
+
 function preload(){
   polygon_img=loadImage("polygon.png");
 }
+
 function setup() {
   createCanvas(900,400);
   engine = Engine.create();
   world = engine.world;
   Engine.run(engine);
+
   ground = new Ground();
   stand1 = new Stand(390,300,250,10);
   stand2 = new Stand(700,200,200,10);
@@ -63,6 +66,7 @@ function setup() {
   slingShot = new Slingshot(this.polygon,{x:100,y:200});
 
 }
+
 function draw() {
   background(56,44,44); 
  
@@ -76,6 +80,7 @@ function draw() {
   ground.display();
   stand1.display();
   stand2.display();
+
   strokeWeight(2);
   stroke(15);
   fill("skyblue");
@@ -86,17 +91,20 @@ function draw() {
   block5.display();
   block6.display();
   block7.display();
+
   fill("pink");
   block8.display();
   block9.display();
   block10.display();
   block11.display();
   block12.display();
+
   fill("turquoise");
   block13.display();
   block14.display();
   block15.display();
   fill("grey");
+
   block16.display();
   fill("skyblue");
   blocks1.display();
@@ -117,18 +125,18 @@ function draw() {
   slingShot.display();
   
 }
+
 function mouseDragged(){
   Matter.Body.setPosition(this.polygon,{x:mouseX,y:mouseY});
 }
+
 function mouseReleased(){
   slingShot.fly();
 }
-function keyPressed(){
-if (keyCode===25){
 
-}
-attach(body) {
-  this.sling.bodyA-polygon
-}
+function keyPressed(){
+  if(keyCode === 32){
+      slingShot.attach(this.polygon);
+  }
 }
 
